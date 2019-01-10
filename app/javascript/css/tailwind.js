@@ -195,6 +195,7 @@ module.exports = {
 
   fonts: {
     'sans': [
+      'trebuchet ms',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
