@@ -23,7 +23,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 })
 
-const FEED_QUERY = gql `
+const ALL_RESOLUTIONS_QUERY = gql `
   {
     resolutions {
       id
@@ -43,22 +43,26 @@ class List extends React.Component {
 
 	      <React.Fragment>	
 	      	<CreateResolution />
-	      	<p>Hey</p>
-	      	  <Query query={FEED_QUERY}>
-
-
+	      	  <Query query={ALL_RESOLUTIONS_QUERY}>
 	      	     {({ loading, error, data }) => {
 			        if (loading) return <div>Fetching</div>
 			        if (error) return <div>Error</div>
 			    
 			          const res = data.resolutions.map( el => 
-			          	<p key={el.id}>{el.title} <DeleteResolution id={el.id} /></p>
+			          	<div key={el.id} className="w-64 rounded-lg overflow-hidden shadow-md relative m-4">
+							<img className="block" src="https://source.unsplash.com/1400x1000/?japan" />
+							<div className="absolute bg-white opacity-50 pin flex items-center justify-center">
+								<p className="text-center text-xl ">{el.title} <br /> <DeleteResolution id={el.id} />	</p>
+
+							</div>
+						</div>
 			          )
 			    
 			          return (
-			            <div>
+			          	<React.Fragment>
 			              {res}
-			            </div>
+			            </React.Fragment>
+
 			          )
 			        }}
   				</Query>
@@ -73,4 +77,5 @@ class List extends React.Component {
 //registerServiceWorker()
 
 
-export default List
+export default List;
+export {ALL_RESOLUTIONS_QUERY}; 
