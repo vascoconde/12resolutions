@@ -56,6 +56,9 @@ let colors = {
   'grey-lightest': '#f8fafc',
   'white': '#ffffff',
 
+  'white-60': 'rgba(255,255,255,0.6)',
+
+
   'red-darkest': '#3b0d0c',
   'red-darker': '#621b18',
   'red-dark': '#cc1f1a',
@@ -820,6 +823,7 @@ module.exports = {
   opacity: {
     '0': '0',
     '25': '.25',
+    '40': '.4',
     '50': '.5',
     '75': '.75',
     '100': '1',
@@ -915,7 +919,7 @@ module.exports = {
     negativeMargin: ['responsive'],
     objectFit: false,
     objectPosition: false,
-    opacity: ['responsive'],
+    opacity: ['responsive', 'hover', 'group-hover'],
     outline: ['focus'],
     overflow: ['responsive'],
     padding: ['responsive'],

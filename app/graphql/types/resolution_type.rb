@@ -5,5 +5,6 @@ module Types
     field :description, String, null: false
     field :banner, String, null: true
     field :is_completed, Boolean, null: true
+    field :steps, [StepType], null: true
   end
 end

@@ -29,6 +29,7 @@ export default class DeleteResolution extends React.Component {
         mutation={DELETE_RESOLUTION_MUTATION} 
         variables={{id: this.props.id}}
         update={this.update}
+        onCompleted={this.props.closeModalHandler}
         refetchQueries={() => [{query: ALL_RESOLUTIONS_QUERY}]}
         >
 
