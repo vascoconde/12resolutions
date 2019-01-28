@@ -46,7 +46,7 @@ export default class CreateResolution extends React.Component {
         onCompleted={() => this.setState({title: ""})}
         refetchQueries={() => [{query: ALL_RESOLUTIONS_QUERY}]}
       >
-  		    {postMutation => <button className="inline-block" type="submit" onClick={postMutation}>GO</button>}
+  		    {postMutation => <button className="inline-block" type="submit" disabled={!title} onClick={postMutation}>GO</button>}
 			</Mutation>
               </div>
 

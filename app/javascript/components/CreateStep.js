@@ -44,7 +44,7 @@ export default class CreateStep extends React.Component {
         onCompleted={() => this.setState({title: ""}) }
         refetchQueries={() => [{query: RESOLUTION_QUERY, variables: {id: this.props.resolutionId}}]}
       >
-  		    {stepMutation => <button type="submit" onClick={stepMutation}>Submit</button>}
+  		    {stepMutation => <button type="submit" disabled={!title} onClick={stepMutation}>Submit</button>}
 			</Mutation>
       </form>
       </div>
