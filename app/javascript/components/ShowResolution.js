@@ -1,13 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
-
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+
 import { ALL_RESOLUTIONS_QUERY } from 'components/List' 
-
 import DeleteResolution from 'components/DeleteResolution'
-
 import CreateStep from 'components/CreateStep'
+import DeleteStep from 'components/DeleteStep'
 
 export const RESOLUTION_QUERY = gql`
     query RESOLUTION_QUERY($id: ID!) {
@@ -59,20 +58,13 @@ export default class ShowResolution extends React.Component {
 
                  { resolution.steps.map(step => {
                     return(
-                      <p key={step.id}>{step.title}</p>
+                      <p key={step.id}>{step.title} <DeleteStep id={step.id} resolutionId={resolution.id} /></p>
                     );
                   }) }
 
                   <CreateStep resolutionId={this.props.id}/>
 
                   </div>
-                  { false && 
-                  <div className="px-6 py-4">
-                    <span className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">#photography</span>
-                    <span className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2">#travel</span>
-                    <span className="inline-block bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker">#winter</span>
-                  </div>
-                  }
                   <div className="text-center">
                   <DeleteResolution id={this.props.id} closeModalHandler={this.props.closeModalHandler}/> 
                   <p><a>✓</a></p>

@@ -29,13 +29,13 @@ export default class CreateStep extends React.Component {
 
         <form onSubmit={(e) => { e.preventDefault(); }}>
 
-        <div className="flex flex-column mt3">
+        <div className="flex flex-column mt-3">
           <input
             className=""
             value={title}
             onChange={e => this.setState({ title: e.target.value })}
             type="text"
-            placeholder="title"
+            placeholder="New step"
           />
         </div>
 			<Mutation 

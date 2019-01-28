@@ -35,7 +35,7 @@ export default class DeleteResolution extends React.Component {
 
         {(deleteResolution, { error }) => (
           <a className="bg-grey-darkest text-white" onClick={() => deleteResolution()} >
-            Remove
+            Delete Resolution
           </a>
           
         )}
